@@ -1,7 +1,30 @@
 import React from "react";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate,
+} from "react-router-dom";
+
+import Home from "./routes/Home/HomePage";
+import About from "./routes/About/AboutPage";
+import Projects from "./routes/Projects/ProjectsPage";
+import Skills from "./routes/Skills/SkillsPage";
+import Contact from "./routes/Contact/ContactPage";
 
 function App() {
-    return <h1>Hello world!</h1>;
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<Navigate replace to="/" />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
