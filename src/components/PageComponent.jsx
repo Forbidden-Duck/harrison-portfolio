@@ -5,6 +5,11 @@ import { makeStyles } from "@mui/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
+/**
+ *
+ * @param {{name:string,colour:string,textColour:string,background:string,previous?:string,next?:string}} props
+ * @returns
+ */
 function PageComponent(props) {
     const classes = makeStyles((theme) => ({
         "@global": {
