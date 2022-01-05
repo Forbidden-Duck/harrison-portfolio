@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Typography, IconButton } from "@mui/material";
-import { makeStyles, useTheme } from "@mui/styles";
+import { makeStyles } from "@mui/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -49,6 +50,9 @@ function PageComponent(props) {
         "&:hover": {
             bgcolor: "rgba(25, 118, 210, 0.05)",
         },
+        "&:disabled": {
+            bgcolor: "rgba(25, 118, 210, 0.03)",
+        },
     };
 
     return (
@@ -59,6 +63,9 @@ function PageComponent(props) {
                     className={classes.pageButton}
                     size="large"
                     color="primary"
+                    disabled={!props.previous}
+                    component={Link}
+                    to={props.previous || false}
                     sx={pageButtonProps}
                 >
                     <FontAwesomeIcon icon={faArrowLeft} />
@@ -73,6 +80,9 @@ function PageComponent(props) {
                     className={classes.pageButton}
                     size="large"
                     color="primary"
+                    disabled={!props.next}
+                    component={Link}
+                    to={props.next || false}
                     sx={pageButtonProps}
                 >
                     <FontAwesomeIcon icon={faArrowRight} />
