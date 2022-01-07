@@ -5,8 +5,8 @@ function HomePage() {
     return (
         <PageComponent
             name="Contact"
-            colour="#011a42"
-            textColour="white"
+            colour="#cac5a0"
+            textColour="black"
             background="https://www.coreldraw.com/static/cdgs/images/pages/seo/tips/photo/basics/blur-background/blur-background.jpg"
             previous="/skills"
         >

@@ -5,7 +5,7 @@ function HomePage() {
     return (
         <PageComponent
             name="Skills"
-            colour="#011a42"
+            colour="#e9a870"
             textColour="white"
             background="https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-06.jpg"
             previous="/projects"

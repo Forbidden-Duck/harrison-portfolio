@@ -5,8 +5,8 @@ function HomePage() {
     return (
         <PageComponent
             name="Projects"
-            colour="#011a42"
-            textColour="white"
+            colour="#f2e2d7"
+            textColour="black"
             background="https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/02/Photoshop-Replace-Background-Featured.jpg"
             previous="/about"
             next="/skills"
