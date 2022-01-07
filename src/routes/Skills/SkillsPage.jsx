@@ -7,7 +7,7 @@ function HomePage() {
             name="Skills"
             colour="#011a42"
             textColour="white"
-            background="https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/02/Photoshop-Replace-Background-Featured.jpg"
+            background="https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-06.jpg"
             previous="/projects"
             next="/contact"
         >
