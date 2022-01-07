@@ -4,6 +4,13 @@ import { Typography, IconButton } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
+
+const animations = {
+    initial: { opacity: 0, x: 100 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -100 },
+};
 
 /**
  *
@@ -75,12 +82,19 @@ function PageComponent(props) {
                 >
                     <FontAwesomeIcon icon={faArrowLeft} />
                 </IconButton>
-                <div className={classes.container}>
+                <motion.div
+                    className={classes.container}
+                    variants={animations}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    transition={{ duration: 1 }}
+                >
                     <Typography variant="h1" fontSize={20}>
                         {props.name}
                     </Typography>
                     <div className={classes.content}>{props.children}</div>
-                </div>
+                </motion.div>
                 <IconButton
                     className={classes.pageButton}
                     size="large"
