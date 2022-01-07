@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Typography, IconButton } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
+import useEventListener from "../hooks/useEventListener";
 
 const animations = {
     initial: { opacity: 0, x: 100 },
@@ -56,6 +57,8 @@ function PageComponent(props) {
         },
     }))();
 
+    const navigate = useNavigate();
+
     const pageButtonProps = {
         borderRadius: "0",
         bgcolor: "rgba(25, 118, 210, 0.15)",
@@ -67,10 +70,20 @@ function PageComponent(props) {
         },
     };
 
+    const keyEvent = (evt) => {
+        if (evt.key === "ArrowLeft" && props.previous) {
+            navigate(props.previous);
+        } else if (evt.key === "ArrowRight" && props.next) {
+            navigate(props.next);
+        }
+    };
+
+    useEventListener("keydown", keyEvent);
+
     return (
         <>
             {props.background && <div className={classes.background} />}
-            <div className={classes.app}>
+            <div className={classes.app} tabIndex={0}>
                 <IconButton
                     className={classes.pageButton}
                     size="large"
