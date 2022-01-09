@@ -53,7 +53,8 @@ function PageComponent(props) {
         },
         content: {
             display: "flex",
-            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
         },
     }))();
 
