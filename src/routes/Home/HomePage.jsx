@@ -32,6 +32,10 @@ function HomePage() {
                 width: "156px",
                 height: "156px",
             },
+            profileImage: {
+                width: "192px",
+                height: "192px",
+            },
         },
     }))();
 
