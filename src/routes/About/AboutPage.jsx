@@ -67,42 +67,44 @@ function HomePage() {
                 <div className={classes.paragraph}>
                     <Paragraph>
                         My full name is <Code>Harrison Kyle Darius Howard</Code>
-                        , I was born in 2002 and as of June 2022 I am 20 years
-                        old. I have been coding since I was 13 years old. The
-                        first language I learnt was C# and I used it to create
-                        Pong with Unity. I continued down this path with Unity
-                        for a couple years.
+                        , I was born in 2002 and as of June 2022, I am 20 years
+                        old. I have been coding since I was 13 years old and the
+                        first language I learned was C#. I used C# to create
+                        Pong with Unity. I continued using Unity to expand my
+                        knowledge of game design and development.
                     </Paragraph>
                     <Paragraph>
                         In 2017 I joined Discord and discovered I could create a
-                        bot using JavaScript. A Discord Bot is a program which
+                        bot using JavaScript. A Discord Bot is a program that
                         runs server-side and you can control different aspects
                         of Discord using this technology (i.e. sending messages,
-                        create channels, banning users). I created my first
+                        creating channels, banning users). I created my first
                         for-profit bot in 2017 and continued developing it up
                         until 2020. This bot was designed to be multi-purpose
-                        and tackle a variety of problems. These problems would
-                        be vary from mini-games to moderating a server. In 2020,
-                        I disbanded the bot and continued my search to find a
+                        and tackle a variety of problems, these problems would
+                        vary from mini-games to moderating a server. In 2020, I
+                        disbanded the bot and continued my search to find a
                         career I wanted to pursue.
                     </Paragraph>
                     <Paragraph>
                         In 2020 I took and completed a Diploma of Software
                         Development course with TAFE Queensland. During this
-                        year long course I figured out my chosen career choice,
-                        website development. At the start of 2021, I started to
-                        learn HTML, CSS and JavaScript. This included how to
-                        create a server with an API using ExpressJS. Around the
-                        time of March 2021 I found React and immediately was
-                        obsessed with how I could create stunning, beautiful and
-                        interactive websites without having to invest thousands
-                        of hours to make something similar.
+                        year-long course, I discovered the career I wanted to
+                        pursue which was website development. At the start of
+                        2021, I started to learn HTML, CSS, and JavaScript, this
+                        also included learning ExpressJS and how to make a
+                        backend API. Around the time of March 2021, I found
+                        React and immediately was obsessed with how I could
+                        create stunning, beautiful, and interactive websites
+                        without having to invest thousands of hours to make
+                        something that could only do a fraction of that.
                     </Paragraph>
                     <Paragraph>
-                        I have learnt a lot about different languages and
-                        technologies over my life. I am eager to apply my
-                        knowledge and experience into solving real world
-                        problems.
+                        I am eager to invest and expand my knowledge in the real
+                        world, solving real-world problems. I have spent years
+                        learning and discovering new technologies and languages
+                        that have given me the experience I need to begin the
+                        career I want.
                     </Paragraph>
                 </div>
             </div>
