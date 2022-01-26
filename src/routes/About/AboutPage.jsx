@@ -1,11 +1,17 @@
 import React from "react";
 import PageComponent from "../../components/PageComponent";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 function Paragraph(props) {
+    const max500 = useMediaQuery("(max-width: 500px)");
+
     return (
-        <Typography variant="body1" fontWeight={300} fontSize={17}>
+        <Typography
+            variant="body1"
+            fontWeight={300}
+            fontSize={max500 ? 14 : 17}
+        >
             {props.children}
         </Typography>
     );
@@ -50,6 +56,16 @@ function HomePage() {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             borderRadius: "50%",
+        },
+        "@media (max-width: 500px)": {
+            container: {
+                width: "95%",
+                marginTop: "30px",
+            },
+            profileImage: {
+                width: "160px",
+                height: "160px",
+            },
         },
     }))();
 
