@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Typography, IconButton } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -15,10 +15,12 @@ const animations = {
 
 /**
  *
- * @param {{name:string,colour:string,textColour:string,background:string,previous?:string,next?:string}} props
+ * @param {{name:string,colour:string,textColour:string,background:string,previous?:string,next?:string,bgHeight?:function}} props
  * @returns
  */
 function PageComponent(props) {
+    const heightFn = props.bgHeight || (() => "100%");
+    const [height, setHeight] = useState(heightFn());
     const classes = makeStyles((theme) => ({
         "@global": {
             body: {
@@ -42,7 +44,7 @@ function PageComponent(props) {
             filter: "blur(8px)",
             WebkitFilter: "blur(8px)",
             width: "100%",
-            height: "100%",
+            height: height > 655 ? `${height + 300}px` : "100%",
             "& body": {
                 background: "black",
             },
@@ -57,6 +59,10 @@ function PageComponent(props) {
             alignItems: "center",
         },
     }))();
+
+    useEffect(() => {
+        window.addEventListener("resize", () => setHeight(heightFn()));
+    }, []);
 
     const navigate = useNavigate();
 

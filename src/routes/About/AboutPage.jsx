@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import PageComponent from "../../components/PageComponent";
 import { Typography, useMediaQuery } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -69,6 +69,7 @@ function HomePage() {
         },
     }))();
 
+    const aboutRef = useRef(null);
     return (
         <PageComponent
             name="About"
@@ -77,10 +78,13 @@ function HomePage() {
             background="https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_coco_16x9_9ccd7110.jpeg"
             previous="/home"
             next="/projects"
+            bgHeight={() =>
+                aboutRef.current ? aboutRef.current.offsetHeight : "100%"
+            }
         >
             <div className={classes.profileImage} />
             <div className={classes.container}>
-                <div className={classes.paragraph}>
+                <div className={classes.paragraph} ref={aboutRef}>
                     <Paragraph>
                         My full name is <Code>Harrison Kyle Darius Howard</Code>
                         , I was born in 2002 and as of June 2022, I am 20 years
