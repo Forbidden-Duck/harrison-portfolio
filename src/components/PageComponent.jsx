@@ -62,6 +62,14 @@ function PageComponent(props) {
 
     useEffect(() => {
         window.addEventListener("resize", () => setHeight(heightFn()));
+        let timer = setTimeout(
+            () => height === "100%" && setHeight(heightFn()),
+            100
+        );
+        return () => {
+            window.removeEventListener("resize");
+            clearTimeout(timer);
+        };
     }, []);
 
     const navigate = useNavigate();
