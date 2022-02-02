@@ -44,7 +44,7 @@ function PageComponent(props) {
             filter: "blur(8px)",
             WebkitFilter: "blur(8px)",
             width: "100%",
-            height: height > 655 ? `${height}px` : "100%",
+            height: height,
             "& body": {
                 background: "black",
             },
