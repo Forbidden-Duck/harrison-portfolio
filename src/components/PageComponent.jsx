@@ -67,7 +67,7 @@ function PageComponent(props) {
             100
         );
         return () => {
-            window.removeEventListener("resize");
+            window.removeEventListener("resize", () => setHeight(heightFn()));
             clearTimeout(timer);
         };
     }, []);
