@@ -79,7 +79,7 @@ function HomePage() {
             previous="/home"
             next="/projects"
             bgHeight={() =>
-                aboutRef.current ? aboutRef.current.offsetHeight : "100%"
+                aboutRef.current ? aboutRef.current.offsetHeight + 300 : "100%"
             }
         >
             <div className={classes.profileImage} />
