@@ -36,24 +36,29 @@ function ProjectCard(props) {
     const { classes } = props;
     const maxSize = { width: "100%", height: "100%" };
 
+    const [dialogOpen, setDialogOpen] = useState(false);
+    const [cardElevation, setCardElevation] = useState(CARD_DEFAULT_ELEVATION);
+
     /**
      * @type {import("@mui/system/styleFunctionSx".SxProps)}
      */
     const classesSx = {
         card: {
             position: "relative",
-            maxWidth: "400px",
-            maxHeight: "240px",
+            maxWidth: `${
+                cardElevation === CARD_HOVER_ELEVATION ? "450" : "400"
+            }px`,
+            maxHeight: `${
+                cardElevation === CARD_HOVER_ELEVATION ? "270" : "240"
+            }px`,
             ...maxSize,
+            transition: "all 0.5s ease-in-out",
         },
         actionArea: {
             position: "absolute",
             ...maxSize,
         },
     };
-
-    const [dialogOpen, setDialogOpen] = useState(false);
-    const [cardElevation, setCardElevation] = useState(CARD_DEFAULT_ELEVATION);
 
     const handleDialogOpen = () => {
         setDialogOpen(true);
