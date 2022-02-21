@@ -46,10 +46,14 @@ function ProjectCard(props) {
         card: {
             position: "relative",
             maxWidth: `${
-                cardElevation === CARD_HOVER_ELEVATION ? "450" : "400"
+                cardElevation === CARD_HOVER_ELEVATION || !!dialogOpen
+                    ? "450"
+                    : "400"
             }px`,
             maxHeight: `${
-                cardElevation === CARD_HOVER_ELEVATION ? "270" : "240"
+                cardElevation === CARD_HOVER_ELEVATION || !!dialogOpen
+                    ? "270"
+                    : "240"
             }px`,
             ...maxSize,
             transition: "all 0.5s ease-in-out",
