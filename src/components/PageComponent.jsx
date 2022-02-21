@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Typography, IconButton } from "@mui/material";
+import { Typography, IconButton, Alert } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -58,6 +58,10 @@ function PageComponent(props) {
             flexDirection: "column",
             alignItems: "center",
             ...(props.contentExtraProps || {}),
+        },
+        alert: {
+            display: "flex",
+            justifyContent: "flex-end",
         },
     }))();
 
@@ -135,6 +139,11 @@ function PageComponent(props) {
                 >
                     <FontAwesomeIcon icon={faArrowRight} />
                 </IconButton>
+                <div className={classes.alert}>
+                    <Alert severity="warning" sx={{ position: "absolute" }}>
+                        This website is under development
+                    </Alert>
+                </div>
             </div>
         </>
     );
