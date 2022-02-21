@@ -15,7 +15,7 @@ const animations = {
 
 /**
  *
- * @param {{name:string,colour:string,textColour:string,background:string,previous?:string,next?:string,bgHeight?:function}} props
+ * @param {{name:string,colour:string,textColour:string,background:string,previous?:string,next?:string,bgHeight?:function,contentExtraProps?:import("cssstyle").CSSStyleDeclaration}} props
  * @returns
  */
 function PageComponent(props) {
@@ -57,6 +57,7 @@ function PageComponent(props) {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            ...(props.contentExtraProps || {}),
         },
     }))();
 
