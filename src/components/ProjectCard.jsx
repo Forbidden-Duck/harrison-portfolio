@@ -16,7 +16,7 @@ import { withStyles } from "@mui/styles";
 
 const BANNER_HEIGHT = 140;
 const CARD_DEFAULT_ELEVATION = 3;
-const CARD_HOVER_ELEVATION = 10;
+const CARD_HOVER_ELEVATION = 20;
 const CARD_STYLES = {
     cardActionRoot: {
         "&:hover $focusHighlight": {
