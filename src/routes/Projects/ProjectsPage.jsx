@@ -1,18 +1,10 @@
 import React from "react";
 import PageComponent from "../../components/PageComponent";
 import ProjectCard from "../../components/ProjectCard";
-import { makeStyles } from "@mui/styles";
+import ProjectGridItem from "../../components/ProjectGridItem";
+import { Box, Grid } from "@mui/material";
 
 function HomePage() {
-    const classes = makeStyles((theme) => ({
-        container: {
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            height: "100%",
-        },
-    }))();
-
     return (
         <PageComponent
             name="Projects"
@@ -23,12 +15,70 @@ function HomePage() {
             next="/skills"
             contentExtraProps={{ width: "100%", height: "98%" }}
         >
-            <ProjectCard
-                banner="https://i.imgur.com/4TEWI1p.gif"
-                name="Project Name"
-                description="Project Description"
-                link="https://google.com/"
-            />
+            {/* Set to 100% on mobile devices */}
+            <Box
+                sx={{
+                    width: "90%",
+                }}
+            >
+                <Grid
+                    container
+                    rowSpacing={2}
+                    columnSpacing={3}
+                    justifyContent="center"
+                    marginTop="2rem"
+                    height="100%"
+                >
+                    <ProjectGridItem>
+                        <ProjectCard
+                            banner="https://i.imgur.com/4TEWI1p.gif"
+                            name="Project Name"
+                            description="Project Description"
+                            link="https://google.com/"
+                        />
+                    </ProjectGridItem>
+                    <ProjectGridItem>
+                        <ProjectCard
+                            banner="https://i.imgur.com/4TEWI1p.gif"
+                            name="Project Name"
+                            description="Project Description"
+                            link="https://google.com/"
+                        />
+                    </ProjectGridItem>
+                    <ProjectGridItem>
+                        <ProjectCard
+                            banner="https://i.imgur.com/4TEWI1p.gif"
+                            name="Project Name"
+                            description="Project Description"
+                            link="https://google.com/"
+                        />
+                    </ProjectGridItem>
+                    <ProjectGridItem>
+                        <ProjectCard
+                            banner="https://i.imgur.com/4TEWI1p.gif"
+                            name="Project Name"
+                            description="Project Description"
+                            link="https://google.com/"
+                        />
+                    </ProjectGridItem>
+                    <ProjectGridItem>
+                        <ProjectCard
+                            banner="https://i.imgur.com/4TEWI1p.gif"
+                            name="Project Name"
+                            description="Project Description"
+                            link="https://google.com/"
+                        />
+                    </ProjectGridItem>
+                    <ProjectGridItem>
+                        <ProjectCard
+                            banner="https://i.imgur.com/4TEWI1p.gif"
+                            name="Project Name"
+                            description="Project Description"
+                            link="https://google.com/"
+                        />
+                    </ProjectGridItem>
+                </Grid>
+            </Box>
         </PageComponent>
     );
 }
