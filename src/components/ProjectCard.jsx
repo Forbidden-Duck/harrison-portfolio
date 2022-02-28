@@ -67,7 +67,7 @@ function ProjectCard(props) {
 
     useEffect(() => {
         setDescriptionClamp(Math.floor(descriptionHeight / 15) || 2);
-    }, []);
+    }, [descriptionHeight]);
 
     /**
      * @type {import("@mui/system/styleFunctionSx".SxProps)}
