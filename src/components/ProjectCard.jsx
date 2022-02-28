@@ -133,7 +133,7 @@ function ProjectCard(props) {
         setCardElevation(CARD_DEFAULT_ELEVATION);
         if (timer) clearTimeout(timer);
         timer = setTimeout(() => {
-            setDescriptionClamp(Math.floor(descriptionHeight / 30) || 2);
+            setDescriptionClamp(Math.round(descriptionHeight / 25) || 2);
             timer = null;
         }, 200);
     };
@@ -168,7 +168,14 @@ function ProjectCard(props) {
             </Dialog>
             <Card
                 ref={cardRef}
-                sx={classesSx.card}
+                sx={
+                    dialogOpen
+                        ? {
+                              ...classesSx.card,
+                              ...classesSx.card["&:hover"],
+                          }
+                        : classesSx.card
+                }
                 elevation={cardElevation}
                 onMouseEnter={onCardMouseEnter}
                 onMouseLeave={onCardMouseLeave}
@@ -222,7 +229,11 @@ function ProjectCard(props) {
                                 userSelect: "none",
                                 display: "-webkit-box",
                                 "-webkit-line-clamp": `${
-                                    isMobile ? "unset" : descriptionClamp
+                                    isMobile
+                                        ? "unset"
+                                        : dialogOpen
+                                        ? "unset"
+                                        : descriptionClamp
                                 }`,
                                 "-webkit-box-orient": "vertical",
                                 overflow: "hidden",
