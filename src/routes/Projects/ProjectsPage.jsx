@@ -47,6 +47,7 @@ function HomePage() {
                             It gathered statistics from video games and other media and 
                             provided the user an analysis of the data."
                             link="https://github.com/Forbidden-Duck/forbidden-bot"
+                            active="inactive"
                         />
                     </ProjectGridItem>
                 </Grid>

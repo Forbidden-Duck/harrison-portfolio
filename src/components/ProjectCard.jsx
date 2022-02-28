@@ -10,9 +10,12 @@ import {
     DialogActions,
     Typography,
     Button,
+    Chip,
 } from "@mui/material";
 import Slide from "@mui/material/Slide";
 import { withStyles } from "@mui/styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
 const BANNER_HEIGHT = 140;
 const CARD_DEFAULT_ELEVATION = 3;
@@ -32,6 +35,11 @@ const DIALOG_TRANSITION = React.forwardRef(function DIALOG_TRANSITION(
     return <Slide direction="down" ref={ref} {...props} />;
 });
 
+/**
+ *
+ * @param {{ banner: string, name: string, description: string, link: string, active: "active" | "inactive" }} props
+ * @returns {JSX.Element}
+ */
 function ProjectCard(props) {
     const { classes } = props;
     const maxSize = { width: "100%", height: "100%" };
@@ -127,7 +135,24 @@ function ProjectCard(props) {
                         variant="h5"
                         sx={{ paddingBottom: "3px", userSelect: "none" }}
                     >
-                        {props.name || "Unspecified"}
+                        {props.name || "Unspecified"}{" "}
+                        {props.active === "active" && (
+                            <Chip label="Active" color="success" size="small" />
+                        )}
+                        {props.active === "inactive" && (
+                            <Chip label="Inactive" color="error" size="small" />
+                        )}
+                        {!!props.link && (
+                            <FontAwesomeIcon
+                                icon={faExternalLinkAlt}
+                                style={{
+                                    marginLeft: "5px",
+                                    width: "20px",
+                                    height: "20px",
+                                    color: "#1657cd",
+                                }}
+                            />
+                        )}
                     </Typography>
                     {props.description && (
                         <Typography
