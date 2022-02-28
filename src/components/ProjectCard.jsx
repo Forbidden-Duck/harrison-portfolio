@@ -56,6 +56,7 @@ function ProjectCard(props) {
                     : "240"
             }px`,
             ...maxSize,
+            height: "270px", // Hard define height (as height never goes lower than maxHeight)
             transition: "all 0.5s ease-in-out",
         },
         actionArea: {
