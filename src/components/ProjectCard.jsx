@@ -138,7 +138,6 @@ function ProjectCard(props) {
         }, 200);
     };
 
-    console.log(descriptionClamp);
     return (
         <>
             <Dialog
