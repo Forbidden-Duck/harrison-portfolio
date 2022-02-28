@@ -37,7 +37,8 @@ const DIALOG_TRANSITION = React.forwardRef(function DIALOG_TRANSITION(
 
 /**
  *
- * @param {{ banner: string, name: string, description: string, link: string, active: "active" | "inactive" }} props
+ * @param {{ banner: string, name: string, description: string, link: string, active: "active" | "inactive",
+ * maxHeight: number, maxWidth: number }} props
  * @returns {JSX.Element}
  */
 function ProjectCard(props) {
@@ -68,8 +69,8 @@ function ProjectCard(props) {
         card: {
             position: "relative",
             transition: "all 0.5s ease-in-out",
-            maxWidth: "400px",
-            maxHeight: "240px",
+            maxWidth: `${props.maxWidth || 400}px`,
+            maxHeight: `${props.maxHeight || 240}px`,
             "&:hover": {
                 maxWidth: cardSize.width + 30,
                 maxHeight: cardSize.height + 30,
