@@ -41,56 +41,7 @@ function HomePage() {
                 >
                     <ProjectGridItem>
                         <ProjectCard
-                            banner="https://i.imgur.com/4TEWI1p.gif"
-                            name="Project Name"
-                            description="Project Description"
-                            link="https://google.com/"
-                        />
-                    </ProjectGridItem>
-                    <ProjectGridItem>
-                        <ProjectCard
-                            banner="https://i.imgur.com/4TEWI1p.gif"
-                            name="Project Name"
-                            description="Project Description"
-                            link="https://google.com/"
-                        />
-                    </ProjectGridItem>
-                    <ProjectGridItem>
-                        <ProjectCard
-                            banner="https://i.imgur.com/4TEWI1p.gif"
-                            name="Project Name"
-                            description="Project Description"
-                            link="https://google.com/"
-                        />
-                    </ProjectGridItem>
-                    <ProjectGridItem>
-                        <ProjectCard
-                            banner="https://i.imgur.com/4TEWI1p.gif"
-                            name="Project Name"
-                            description="Project Description"
-                            link="https://google.com/"
-                        />
-                    </ProjectGridItem>
-                    <ProjectGridItem>
-                        <ProjectCard
-                            banner="https://i.imgur.com/4TEWI1p.gif"
-                            name="Project Name"
-                            description="Project Description"
-                            link="https://google.com/"
-                        />
-                    </ProjectGridItem>
-                    <ProjectGridItem>
-                        <ProjectCard
-                            banner="https://i.imgur.com/4TEWI1p.gif"
-                            name="Project Name"
-                            description="Project Description"
-                            link="https://google.com/"
-                        />
-                    </ProjectGridItem>
-                    <ProjectGridItem>
-                        <ProjectCard
-                            banner="https://i.imgur.com/4TEWI1p.gif"
-                            name="Project Name"
+                            name="Forbidden"
                             description="Project Description"
                             link="https://google.com/"
                         />
