@@ -8,10 +8,11 @@ import { motion } from "framer-motion";
 import useEventListener from "../hooks/useEventListener";
 
 const animations = {
-    initial: { opacity: 0, x: 100 },
-    animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -100 },
+    initial: { opacity: 0, x: 0 },
+    animate: { opacity: 1, x: [null, 30, -30, 20, 0] },
 };
+const DESKTOP_DURATION = 1.2;
+const MOBILE_DURATION = 1;
 
 /**
  *
@@ -78,6 +79,7 @@ function PageComponent(props) {
     }, []);
 
     const navigate = useNavigate();
+    const isMobile = window.screen.width < 600;
 
     const pageButtonProps = {
         borderRadius: "0",
@@ -120,8 +122,9 @@ function PageComponent(props) {
                     variants={animations}
                     initial="initial"
                     animate="animate"
-                    exit="exit"
-                    transition={{ duration: 1 }}
+                    transition={{
+                        duration: isMobile ? MOBILE_DURATION : DESKTOP_DURATION,
+                    }}
                 >
                     <Typography variant="h1" fontSize={20}>
                         {props.name}
