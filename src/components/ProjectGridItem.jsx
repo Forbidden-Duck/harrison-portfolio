@@ -28,7 +28,7 @@ function ProjectGridItem(props) {
         },
         "@keyframes gridUnhover": {
             "0%": {
-                maxWidth: "470px",
+                maxWidth: `${gridItemRef.current?.offsetWidth || 470}px`,
                 height: `${gridItemRef.current?.offsetHeight || 280}px`,
             },
             "100%": {
