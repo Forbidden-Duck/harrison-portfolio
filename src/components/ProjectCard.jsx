@@ -66,8 +66,28 @@ function ProjectCard(props) {
     }, []);
 
     useEffect(() => {
-        setDescriptionClamp(Math.floor(descriptionHeight / 15) || 2);
+        setDescriptionClamp(Math.round(descriptionHeight / 25) || 2);
     }, [descriptionHeight]);
+
+    // Window resize resets the card size and description height
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            setCardSize({
+                height: cardRef.current?.offsetHeight || 0,
+                width: cardRef.current?.offsetWidth || 0,
+            });
+            setDescriptionHeight(descriptionRef.current?.offsetHeight || 0);
+        });
+        return () => {
+            window.removeEventListener("resize", () => {
+                setCardSize({
+                    height: cardRef.current?.offsetHeight || 0,
+                    width: cardRef.current?.offsetWidth || 0,
+                });
+                setDescriptionHeight(descriptionRef.current?.offsetHeight || 0);
+            });
+        };
+    }, []);
 
     /**
      * @type {import("@mui/system/styleFunctionSx".SxProps)}
@@ -118,6 +138,7 @@ function ProjectCard(props) {
         }, 200);
     };
 
+    console.log(descriptionClamp);
     return (
         <>
             <Dialog
