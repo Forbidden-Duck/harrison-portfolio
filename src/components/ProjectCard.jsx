@@ -11,6 +11,7 @@ import {
     Typography,
     Button,
     Chip,
+    useMediaQuery,
 } from "@mui/material";
 import Slide from "@mui/material/Slide";
 import { withStyles } from "@mui/styles";
@@ -44,6 +45,7 @@ const DIALOG_TRANSITION = React.forwardRef(function DIALOG_TRANSITION(
 function ProjectCard(props) {
     const { classes } = props;
     const maxSize = { width: "100%", height: "100%" };
+    const isMobile = useMediaQuery("(max-width:600px)");
 
     const [dialogOpen, setDialogOpen] = useState(false);
     const [cardElevation, setCardElevation] = useState(CARD_DEFAULT_ELEVATION);
@@ -80,6 +82,9 @@ function ProjectCard(props) {
                 maxWidth: cardSize.width + 30,
                 maxHeight: cardSize.height + 30,
                 ...maxSize,
+            },
+            "@media (max-width:600px)": {
+                maxHeight: "unset",
             },
         },
         actionArea: {
@@ -196,7 +201,9 @@ function ProjectCard(props) {
                             sx={{
                                 userSelect: "none",
                                 display: "-webkit-box",
-                                "-webkit-line-clamp": `${descriptionClamp}`,
+                                "-webkit-line-clamp": `${
+                                    isMobile ? "unset" : descriptionClamp
+                                }`,
                                 "-webkit-box-orient": "vertical",
                                 overflow: "hidden",
                             }}
