@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
     Card,
     CardActionArea,
@@ -47,24 +47,34 @@ function ProjectCard(props) {
     const [dialogOpen, setDialogOpen] = useState(false);
     const [cardElevation, setCardElevation] = useState(CARD_DEFAULT_ELEVATION);
 
+    const cardRef = useRef(null);
+    const [cardSize, setCardSize] = useState(false);
+
+    const descriptionRef = useRef(null);
+    const [descriptionHeight, setDescriptionHeight] = useState(false);
+
+    useEffect(() => {
+        setCardSize({
+            height: cardRef.current?.offsetHeight || 0,
+            width: cardRef.current?.offsetWidth || 0,
+        });
+        setDescriptionHeight(descriptionRef.current?.offsetHeight || 0);
+    }, []);
+
     /**
      * @type {import("@mui/system/styleFunctionSx".SxProps)}
      */
     const classesSx = {
         card: {
             position: "relative",
-            maxWidth: `${
-                cardElevation === CARD_HOVER_ELEVATION || !!dialogOpen
-                    ? "450"
-                    : "400"
-            }px`,
-            maxHeight: `${
-                cardElevation === CARD_HOVER_ELEVATION || !!dialogOpen
-                    ? parseInt(props.maxHeight) + 30 || "270"
-                    : props.maxHeight || "240"
-            }px`,
-            ...maxSize,
             transition: "all 0.5s ease-in-out",
+            maxWidth: "400px",
+            maxHeight: "240px",
+            "&:hover": {
+                maxWidth: cardSize.width + 30,
+                maxHeight: cardSize.height + 30,
+                ...maxSize,
+            },
         },
         actionArea: {
             position: "absolute",
@@ -108,6 +118,7 @@ function ProjectCard(props) {
                 </DialogActions>
             </Dialog>
             <Card
+                ref={cardRef}
                 sx={classesSx.card}
                 elevation={cardElevation}
                 onMouseEnter={() => setCardElevation(CARD_HOVER_ELEVATION)}
@@ -156,21 +167,21 @@ function ProjectCard(props) {
                     </Typography>
                     {props.description && (
                         <Typography
+                            ref={descriptionRef}
                             variant="body2"
                             sx={{
                                 userSelect: "none",
                                 display: "-webkit-box",
                                 "-webkit-line-clamp":
                                     cardElevation === CARD_DEFAULT_ELEVATION
-                                        ? "2"
+                                        ? `${
+                                              Math.floor(
+                                                  descriptionHeight / 15
+                                              ) || 2
+                                          }`
                                         : "unset",
                                 "-webkit-box-orient": "vertical",
                                 overflow: "hidden",
-                                maxHeight:
-                                    cardElevation === CARD_DEFAULT_ELEVATION
-                                        ? "40px"
-                                        : "100px",
-                                transition: "max-height 0.5s ease-in-out",
                             }}
                         >
                             {props.description}

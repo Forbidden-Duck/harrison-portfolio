@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import PageComponent from "../../components/PageComponent";
 import ProjectCard from "../../components/ProjectCard";
-import ProjectGridItem from "../../components/ProjectGridItem";
 import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
 
 function HomePage() {
@@ -39,7 +38,7 @@ function HomePage() {
                     marginTop="2rem"
                     height="100%"
                 >
-                    <ProjectGridItem>
+                    <Grid item>
                         <ProjectCard
                             banner="/images/ForbiddenBanner.gif"
                             name="Forbidden Statistics"
@@ -49,7 +48,73 @@ function HomePage() {
                             link="https://github.com/Forbidden-Duck/forbidden-bot"
                             active="inactive"
                         />
-                    </ProjectGridItem>
+                    </Grid>
+                    <Grid item>
+                        <ProjectCard
+                            banner="/images/ForbiddenBanner.gif"
+                            name="Forbidden Statistics"
+                            description="Forbidden was a General Statistics Discord Bot. 
+                            It gathered statistics from video games and other media and 
+                            provided the user an analysis of the data."
+                            link="https://github.com/Forbidden-Duck/forbidden-bot"
+                            active="inactive"
+                        />
+                    </Grid>
+                    <Grid item>
+                        <ProjectCard
+                            banner="/images/ForbiddenBanner.gif"
+                            name="Forbidden Statistics"
+                            description="Forbidden was a General Statistics Discord Bot. 
+                            It gathered statistics from video games and other media and 
+                            provided the user an analysis of the data."
+                            link="https://github.com/Forbidden-Duck/forbidden-bot"
+                            active="inactive"
+                        />
+                    </Grid>
+                    <Grid item>
+                        <ProjectCard
+                            banner="/images/ForbiddenBanner.gif"
+                            name="Forbidden Statistics"
+                            description="Forbidden was a General Statistics Discord Bot. 
+                            It gathered statistics from video games and other media and 
+                            provided the user an analysis of the data."
+                            link="https://github.com/Forbidden-Duck/forbidden-bot"
+                            active="inactive"
+                        />
+                    </Grid>
+                    <Grid item>
+                        <ProjectCard
+                            banner="/images/ForbiddenBanner.gif"
+                            name="Forbidden Statistics"
+                            description="Forbidden was a General Statistics Discord Bot. 
+                            It gathered statistics from video games and other media and 
+                            provided the user an analysis of the data."
+                            link="https://github.com/Forbidden-Duck/forbidden-bot"
+                            active="inactive"
+                        />
+                    </Grid>
+                    <Grid item>
+                        <ProjectCard
+                            banner="/images/ForbiddenBanner.gif"
+                            name="Forbidden Statistics"
+                            description="Forbidden was a General Statistics Discord Bot. 
+                            It gathered statistics from video games and other media and 
+                            provided the user an analysis of the data."
+                            link="https://github.com/Forbidden-Duck/forbidden-bot"
+                            active="inactive"
+                        />
+                    </Grid>
+                    <Grid item>
+                        <ProjectCard
+                            banner="/images/ForbiddenBanner.gif"
+                            name="Forbidden Statistics"
+                            description="Forbidden was a General Statistics Discord Bot. 
+                            It gathered statistics from video games and other media and 
+                            provided the user an analysis of the data."
+                            link="https://github.com/Forbidden-Duck/forbidden-bot"
+                            active="inactive"
+                        />
+                    </Grid>
                 </Grid>
             </Box>
         </PageComponent>
