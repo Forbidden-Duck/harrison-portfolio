@@ -52,11 +52,10 @@ function ProjectCard(props) {
             }px`,
             maxHeight: `${
                 cardElevation === CARD_HOVER_ELEVATION || !!dialogOpen
-                    ? "270"
-                    : "240"
+                    ? parseInt(props.maxHeight) + 30 || "270"
+                    : props.maxHeight || "240"
             }px`,
             ...maxSize,
-            height: "270px", // Hard define height (as height never goes lower than maxHeight)
             transition: "all 0.5s ease-in-out",
         },
         actionArea: {

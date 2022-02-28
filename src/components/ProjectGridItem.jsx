@@ -19,21 +19,25 @@ function ProjectGridItem(props) {
         "@keyframes gridHover": {
             "0%": {
                 maxWidth: "400px",
-                height: "260px",
+                height: `${parseInt(props.maxHeight) + 20 || 260}px`,
             },
             "100%": {
                 maxWidth: "470px",
-                height: "280px",
+                height: `${parseInt(props.maxHeight) + 40 || 280}px`,
             },
         },
         "@keyframes gridUnhover": {
             "0%": {
                 maxWidth: `${gridItemRef.current?.offsetWidth || 470}px`,
-                height: `${gridItemRef.current?.offsetHeight || 280}px`,
+                height: `${
+                    gridItemRef.current?.offsetHeight ||
+                    parseInt(props.maxHeight) + 40 ||
+                    280
+                }px`,
             },
             "100%": {
                 maxWidth: "400px",
-                height: "260px",
+                height: `${parseInt(props.maxHeight) + 20 || 260}px`,
             },
         },
     }))();

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import PageComponent from "../../components/PageComponent";
 import ProjectCard from "../../components/ProjectCard";
 import ProjectGridItem from "../../components/ProjectGridItem";
-import { Box, Grid, useMediaQuery } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
 
 function HomePage() {
     const isMobile = useMediaQuery("(max-width:552px)");
@@ -41,9 +41,12 @@ function HomePage() {
                 >
                     <ProjectGridItem>
                         <ProjectCard
-                            name="Forbidden"
-                            description="Project Description"
-                            link="https://google.com/"
+                            banner="/images/ForbiddenBanner.gif"
+                            name="Forbidden Statistics"
+                            description="Forbidden was a General Statistics Discord Bot. 
+                            It gathered statistics from video games and other media and 
+                            provided the user an analysis of the data."
+                            link="https://github.com/Forbidden-Duck/forbidden-bot"
                         />
                     </ProjectGridItem>
                 </Grid>
