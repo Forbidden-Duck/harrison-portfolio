@@ -130,7 +130,24 @@ function ProjectCard(props) {
                         {props.name || "Unspecified"}
                     </Typography>
                     {props.description && (
-                        <Typography variant="body2" sx={{ userSelect: "none" }}>
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                userSelect: "none",
+                                display: "-webkit-box",
+                                "-webkit-line-clamp":
+                                    cardElevation === CARD_DEFAULT_ELEVATION
+                                        ? "2"
+                                        : "unset",
+                                "-webkit-box-orient": "vertical",
+                                overflow: "hidden",
+                                maxHeight:
+                                    cardElevation === CARD_DEFAULT_ELEVATION
+                                        ? "40px"
+                                        : "100px",
+                                transition: "max-height 0.5s ease-in-out",
+                            }}
+                        >
                             {props.description}
                         </Typography>
                     )}
