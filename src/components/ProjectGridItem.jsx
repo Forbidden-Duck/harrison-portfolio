@@ -37,7 +37,9 @@ function ProjectGridItem(props) {
             className={
                 !!hover
                     ? classes.gridItemHover
-                    : hover === false && classes.gridItemUnhover
+                    : hover === false
+                    ? classes.gridItemUnhover
+                    : ""
             }
             ref={gridItemRef}
             item
