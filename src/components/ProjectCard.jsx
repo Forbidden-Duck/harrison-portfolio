@@ -53,6 +53,7 @@ function ProjectCard(props) {
 
     const descriptionRef = useRef(null);
     const [descriptionHeight, setDescriptionHeight] = useState(false);
+    const [descriptionClamp, setDescriptionClamp] = useState("unset");
 
     useEffect(() => {
         setCardSize({
@@ -60,6 +61,10 @@ function ProjectCard(props) {
             width: cardRef.current?.offsetWidth || 0,
         });
         setDescriptionHeight(descriptionRef.current?.offsetHeight || 0);
+    }, []);
+
+    useEffect(() => {
+        setDescriptionClamp(Math.floor(descriptionHeight / 15) || 2);
     }, []);
 
     /**
@@ -88,6 +93,24 @@ function ProjectCard(props) {
     };
     const handleDialogClose = () => {
         setDialogOpen(false);
+    };
+
+    let timer = useRef(null);
+    const onCardMouseEnter = () => {
+        setCardElevation(CARD_HOVER_ELEVATION);
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => {
+            setDescriptionClamp("unset");
+            timer = null;
+        }, 200);
+    };
+    const onCardMouseLeave = () => {
+        setCardElevation(CARD_DEFAULT_ELEVATION);
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => {
+            setDescriptionClamp(Math.floor(descriptionHeight / 30) || 2);
+            timer = null;
+        }, 200);
     };
 
     return (
@@ -122,8 +145,8 @@ function ProjectCard(props) {
                 ref={cardRef}
                 sx={classesSx.card}
                 elevation={cardElevation}
-                onMouseEnter={() => setCardElevation(CARD_HOVER_ELEVATION)}
-                onMouseLeave={() => setCardElevation(CARD_DEFAULT_ELEVATION)}
+                onMouseEnter={onCardMouseEnter}
+                onMouseLeave={onCardMouseLeave}
                 onClick={() => setDialogOpen(true)}
             >
                 <CardActionArea
@@ -173,14 +196,7 @@ function ProjectCard(props) {
                             sx={{
                                 userSelect: "none",
                                 display: "-webkit-box",
-                                "-webkit-line-clamp":
-                                    cardElevation === CARD_DEFAULT_ELEVATION
-                                        ? `${
-                                              Math.floor(
-                                                  descriptionHeight / 15
-                                              ) || 2
-                                          }`
-                                        : "unset",
+                                "-webkit-line-clamp": `${descriptionClamp}`,
                                 "-webkit-box-orient": "vertical",
                                 overflow: "hidden",
                             }}
