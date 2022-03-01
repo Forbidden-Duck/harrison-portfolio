@@ -46,7 +46,7 @@ function HomePage() {
                             description="Forbidden was a General Statistics Discord Bot. 
                             It gathered statistics from video games and other media and 
                             provided the user an analysis of the data."
-                            link="https://github.com/Forbidden-Duck/forbidden-bot"
+                            linkCode="https://github.com/Forbidden-Duck/forbidden-bot"
                             active="inactive"
                         />
                     </Grid>
