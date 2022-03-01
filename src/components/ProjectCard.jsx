@@ -227,114 +227,123 @@ function ProjectCard(props) {
                     )}
                 </DialogActions>
             </Dialog>
-            <Card
-                ref={cardRef}
-                sx={
-                    dialogIsOpen()
-                        ? {
-                              ...classesSx.card,
-                              maxWidth: calculateHoverWidth(),
-                              maxHeight: calculateHoverHeight(true),
-                              ...maxSize,
-                          }
-                        : classesSx.card
-                }
-                elevation={cardElevation}
-                onMouseEnter={onCardMouseEnter}
-                onMouseLeave={onCardMouseLeave}
-                onClick={() => dialogCanOpen() && setDialogOpen(true)}
+            <CardActionArea
+                classes={{
+                    root: classes.cardActionRoot,
+                    focusHighlight: classes.focusHighlight,
+                }}
+                sx={{ borderRadius: "4px" }}
             >
-                <CardActionArea
-                    classes={{
-                        root: classes.cardActionRoot,
-                        focusHighlight: classes.focusHighlight,
-                    }}
-                    sx={classesSx.actionArea}
-                />
-                {props.banner ? (
-                    <div style={{ position: "relative" }}>
-                        {props.date && (
+                <Card
+                    ref={cardRef}
+                    sx={
+                        dialogIsOpen()
+                            ? {
+                                  ...classesSx.card,
+                                  maxWidth: calculateHoverWidth(),
+                                  maxHeight: calculateHoverHeight(true),
+                                  ...maxSize,
+                              }
+                            : classesSx.card
+                    }
+                    elevation={cardElevation}
+                    onMouseEnter={onCardMouseEnter}
+                    onMouseLeave={onCardMouseLeave}
+                    onClick={() => dialogCanOpen() && setDialogOpen(true)}
+                >
+                    {props.banner ? (
+                        <div style={{ position: "relative" }}>
+                            {props.date && (
+                                <Chip
+                                    label={props.date}
+                                    size="small"
+                                    color="primary"
+                                    sx={{
+                                        position: "absolute",
+                                        marginTop: "3px",
+                                        marginLeft: "3px",
+                                    }}
+                                />
+                            )}
+                            <CardMedia
+                                component="img"
+                                height={BANNER_HEIGHT}
+                                image={props.banner}
+                                alt="Project Banner"
+                                sx={{ userSelect: "none" }}
+                            />
+                        </div>
+                    ) : (
+                        props.date && (
                             <Chip
                                 label={props.date}
                                 size="small"
                                 color="primary"
                                 sx={{
-                                    position: "absolute",
                                     marginTop: "3px",
                                     marginLeft: "3px",
                                 }}
                             />
-                        )}
-                        <CardMedia
-                            component="img"
-                            height={BANNER_HEIGHT}
-                            image={props.banner}
-                            alt="Project Banner"
-                            sx={{ userSelect: "none" }}
-                        />
-                    </div>
-                ) : (
-                    props.date && (
-                        <Chip
-                            label={props.date}
-                            size="small"
-                            color="primary"
-                            sx={{
-                                marginTop: "3px",
-                                marginLeft: "3px",
-                            }}
-                        />
-                    )
-                )}
-                <CardContent>
-                    <Typography
-                        variant="h5"
-                        sx={{ paddingBottom: "3px", userSelect: "none" }}
-                    >
-                        {props.name || "Unspecified"}{" "}
-                        {props.active === "active" && (
-                            <Chip label="Active" color="success" size="small" />
-                        )}
-                        {props.active === "inactive" && (
-                            <Chip label="Inactive" color="error" size="small" />
-                        )}
-                        {(!!props.link ||
-                            !!props.linkCode ||
-                            !!props.linkWebsite) && (
-                            <FontAwesomeIcon
-                                icon={faExternalLinkAlt}
-                                style={{
-                                    marginLeft: "5px",
-                                    width: "20px",
-                                    height: "20px",
-                                    color: "#1657cd",
-                                }}
-                            />
-                        )}
-                    </Typography>
-                    {props.description && (
-                        <Typography
-                            ref={descriptionRef}
-                            variant="body2"
-                            sx={{
-                                userSelect: "none",
-                                display: "-webkit-box",
-                                WebkitLineClamp: `${
-                                    isMobile
-                                        ? "unset"
-                                        : dialogOpen
-                                        ? "unset"
-                                        : descriptionClamp
-                                }`,
-                                WebkitBoxOrient: "vertical",
-                                overflow: "hidden",
-                            }}
-                        >
-                            {props.description}
-                        </Typography>
+                        )
                     )}
-                </CardContent>
-            </Card>
+                    <CardContent>
+                        <Typography
+                            variant="h5"
+                            sx={{ paddingBottom: "3px", userSelect: "none" }}
+                        >
+                            {props.name || "Unspecified"}{" "}
+                            {props.active === "active" && (
+                                <Chip
+                                    label="Active"
+                                    color="success"
+                                    size="small"
+                                />
+                            )}
+                            {props.active === "inactive" && (
+                                <Chip
+                                    label="Inactive"
+                                    color="error"
+                                    size="small"
+                                />
+                            )}
+                            {(!!props.link ||
+                                !!props.linkCode ||
+                                !!props.linkWebsite) && (
+                                <FontAwesomeIcon
+                                    icon={faExternalLinkAlt}
+                                    style={{
+                                        marginLeft: "5px",
+                                        width: "20px",
+                                        height: "20px",
+                                        color: "#1657cd",
+                                    }}
+                                />
+                            )}
+                        </Typography>
+                        {props.description && (
+                            <Typography
+                                ref={descriptionRef}
+                                variant="body2"
+                                sx={{
+                                    userSelect: "none",
+                                    display: "-webkit-box",
+                                    WebkitLineClamp: `${
+                                        isMobile
+                                            ? "unset"
+                                            : dialogOpen
+                                            ? "unset"
+                                            : descriptionClamp
+                                    }`,
+                                    WebkitBoxOrient: "vertical",
+                                    overflow: "hidden",
+                                }}
+                            >
+                                {props.description}
+                            </Typography>
+                        )}
+                    </CardContent>
+                </Card>
+            </CardActionArea>
         </>
     );
 }
