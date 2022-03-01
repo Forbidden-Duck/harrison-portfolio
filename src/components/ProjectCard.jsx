@@ -35,12 +35,13 @@ const DIALOG_TRANSITION = React.forwardRef(function DIALOG_TRANSITION(
 ) {
     return <Slide direction="down" ref={ref} {...props} />;
 });
+const CARD_GROWTH = 30;
 
 /**
  *
  * @param {{ banner: string, name: string, description: string, link: string, linkCode: string,
  * linkWebsite: string, active: "active" | "inactive", maxHeight: string, maxWidth: string,
- * useMaxSize: boolean, date: string }} props
+ * useMaxSize: boolean, date: string, cardGrowth: number }} props
  * @returns {JSX.Element}
  */
 function ProjectCard(props) {
@@ -93,10 +94,11 @@ function ProjectCard(props) {
     const calculateHoverWidth = () => {
         // Always use maxWidth to calculate growth
         if (props.useMaxSize) {
-            if (props.maxWidth) return `calc(${props.maxWidth} + 30)`;
+            if (props.maxWidth)
+                return `calc(${props.maxWidth} + ${props.cardGrowth || 30})`;
             return 430;
         }
-        return cardSize.width + 30;
+        return cardSize.width + (props.cardGrowth || 30);
     };
 
     const calculateHoverHeight = (dialog) => {
@@ -110,15 +112,18 @@ function ProjectCard(props) {
                     descriptionRef.current?.scrollHeight)
         ) {
             return (
-                cardSize.height + (descriptionRef.current?.scrollHeight - 30)
+                cardSize.height +
+                (descriptionRef.current?.scrollHeight -
+                    (props.cardGrowth || 30))
             );
         }
         // Always use maxWidth to calculate growth
         if (props.useMaxSize) {
-            if (props.maxHeight) return `calc(${props.maxHeight} + 30)`;
-            return cardSize.height + 30;
+            if (props.maxHeight)
+                return `calc(${props.maxHeight} + ${props.cardGrowth || 30})`;
+            return cardSize.height + (props.cardGrowth || 30);
         }
-        return cardSize.height + 30;
+        return cardSize.height + (props.cardGrowth || 30);
     };
 
     /**

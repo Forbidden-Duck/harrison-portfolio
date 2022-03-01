@@ -76,6 +76,7 @@ function HomePage() {
                             ]}
                             linkWebsite="https://ecommerce.harrisonhoward.xyz/"
                             active="active"
+                            cardGrowth={40}
                         />
                     </Grid>
                 </Grid>
