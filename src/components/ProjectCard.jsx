@@ -177,6 +177,13 @@ function ProjectCard(props) {
     const dialogCanOpen = () =>
         !!props.link || !!props.linkCode || !!props.linkWebsite;
 
+    const openLink = (links) => {
+        if (!Array.isArray(links)) return window.open(links);
+        links.forEach((link) => {
+            window.open(link);
+        });
+    };
+
     return (
         <>
             <Dialog
@@ -198,9 +205,10 @@ function ProjectCard(props) {
                     {props.link && (
                         <Button
                             variant="contained"
-                            onClick={handleDialogClose}
-                            href={props.link}
-                            target="_blank"
+                            onClick={() => {
+                                handleDialogClose();
+                                openLink(props.link);
+                            }}
                         >
                             Link
                         </Button>
@@ -208,9 +216,10 @@ function ProjectCard(props) {
                     {props.linkCode && (
                         <Button
                             variant="contained"
-                            onClick={handleDialogClose}
-                            href={props.linkCode}
-                            target="_blank"
+                            onClick={() => {
+                                handleDialogClose();
+                                openLink(props.linkCode);
+                            }}
                         >
                             Code
                         </Button>
@@ -218,9 +227,10 @@ function ProjectCard(props) {
                     {props.linkWebsite && (
                         <Button
                             variant="contained"
-                            onClick={handleDialogClose}
-                            href={props.linkWebsite}
-                            target="_blank"
+                            onClick={() => {
+                                handleDialogClose();
+                                openLink(props.linkWebsite);
+                            }}
                         >
                             Website
                         </Button>
