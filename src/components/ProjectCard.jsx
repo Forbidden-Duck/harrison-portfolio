@@ -39,7 +39,7 @@ const DIALOG_TRANSITION = React.forwardRef(function DIALOG_TRANSITION(
 /**
  *
  * @param {{ banner: string, name: string, description: string, link: string, active: "active" | "inactive",
- * maxHeight: string, maxWidth: string, useMaxSize: boolean }} props
+ * maxHeight: string, maxWidth: string, useMaxSize: boolean, date: string }} props
  * @returns {JSX.Element}
  */
 function ProjectCard(props) {
@@ -222,14 +222,40 @@ function ProjectCard(props) {
                     }}
                     sx={classesSx.actionArea}
                 />
-                {props.banner && (
-                    <CardMedia
-                        component="img"
-                        height={BANNER_HEIGHT}
-                        image={props.banner}
-                        alt="Project Banner"
-                        sx={{ userSelect: "none" }}
-                    />
+                {props.banner ? (
+                    <div style={{ position: "relative" }}>
+                        {props.date && (
+                            <Chip
+                                label={props.date}
+                                size="small"
+                                color="primary"
+                                sx={{
+                                    position: "absolute",
+                                    marginTop: "3px",
+                                    marginLeft: "3px",
+                                }}
+                            />
+                        )}
+                        <CardMedia
+                            component="img"
+                            height={BANNER_HEIGHT}
+                            image={props.banner}
+                            alt="Project Banner"
+                            sx={{ userSelect: "none" }}
+                        />
+                    </div>
+                ) : (
+                    props.date && (
+                        <Chip
+                            label={props.date}
+                            size="small"
+                            color="primary"
+                            sx={{
+                                marginTop: "3px",
+                                marginLeft: "3px",
+                            }}
+                        />
+                    )
                 )}
                 <CardContent>
                     <Typography
