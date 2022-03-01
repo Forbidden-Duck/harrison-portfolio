@@ -38,8 +38,9 @@ const DIALOG_TRANSITION = React.forwardRef(function DIALOG_TRANSITION(
 
 /**
  *
- * @param {{ banner: string, name: string, description: string, link: string, active: "active" | "inactive",
- * maxHeight: string, maxWidth: string, useMaxSize: boolean, date: string }} props
+ * @param {{ banner: string, name: string, description: string, link: string, linkCode: string,
+ * linkWebsite: string, active: "active" | "inactive", maxHeight: string, maxWidth: string,
+ * useMaxSize: boolean, date: string }} props
  * @returns {JSX.Element}
  */
 function ProjectCard(props) {
@@ -170,15 +171,21 @@ function ProjectCard(props) {
         }, 250);
     };
 
+    const dialogIsOpen = () =>
+        (!!props.link || !!props.linkCode || !!props.linkWebsite) && dialogOpen;
+
+    const dialogCanOpen = () =>
+        !!props.link || !!props.linkCode || !!props.linkWebsite;
+
     return (
         <>
             <Dialog
-                open={!!props.link && dialogOpen}
+                open={dialogIsOpen()}
                 TransitionComponent={DIALOG_TRANSITION}
                 keepMounted
             >
                 <DialogTitle sx={{ userSelect: "none" }}>
-                    Open {props.name && `${props.name}'s `}Link?
+                    Open {props.name && `${props.name}'s `}Links?
                 </DialogTitle>
                 <DialogActions>
                     <Button
@@ -188,20 +195,42 @@ function ProjectCard(props) {
                     >
                         No
                     </Button>
-                    <Button
-                        variant="contained"
-                        onClick={handleDialogClose}
-                        href={props.link}
-                        target="_blank"
-                    >
-                        Yes
-                    </Button>
+                    {props.link && (
+                        <Button
+                            variant="contained"
+                            onClick={handleDialogClose}
+                            href={props.link}
+                            target="_blank"
+                        >
+                            Link
+                        </Button>
+                    )}
+                    {props.linkCode && (
+                        <Button
+                            variant="contained"
+                            onClick={handleDialogClose}
+                            href={props.linkCode}
+                            target="_blank"
+                        >
+                            Code
+                        </Button>
+                    )}
+                    {props.linkWebsite && (
+                        <Button
+                            variant="contained"
+                            onClick={handleDialogClose}
+                            href={props.linkWebsite}
+                            target="_blank"
+                        >
+                            Website
+                        </Button>
+                    )}
                 </DialogActions>
             </Dialog>
             <Card
                 ref={cardRef}
                 sx={
-                    dialogOpen
+                    dialogIsOpen()
                         ? {
                               ...classesSx.card,
                               maxWidth: calculateHoverWidth(),
@@ -213,7 +242,7 @@ function ProjectCard(props) {
                 elevation={cardElevation}
                 onMouseEnter={onCardMouseEnter}
                 onMouseLeave={onCardMouseLeave}
-                onClick={() => setDialogOpen(true)}
+                onClick={() => dialogCanOpen() && setDialogOpen(true)}
             >
                 <CardActionArea
                     classes={{
@@ -269,7 +298,9 @@ function ProjectCard(props) {
                         {props.active === "inactive" && (
                             <Chip label="Inactive" color="error" size="small" />
                         )}
-                        {!!props.link && (
+                        {(!!props.link ||
+                            !!props.linkCode ||
+                            !!props.linkWebsite) && (
                             <FontAwesomeIcon
                                 icon={faExternalLinkAlt}
                                 style={{
