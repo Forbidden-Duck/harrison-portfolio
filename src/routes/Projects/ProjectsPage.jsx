@@ -79,6 +79,19 @@ function HomePage() {
                             cardGrowth={50}
                         />
                     </Grid>
+                    <Grid item>
+                        <ProjectCard
+                            banner="https://i.imgur.com/f7KdaFb.jpeg"
+                            name="Thryve"
+                            date="2022"
+                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Aliquam interdum dui at nulla egestas dapibus. Donec tempor, orci a 
+                            sit amet congue mauris lorem ac nibh. Nam ultrices eu neque a condimentum."
+                            linkCode="https://github.com/Forbidden-Duck/forbidden-bot"
+                            active="inprogress"
+                            cardGrowth={45}
+                        />
+                    </Grid>
                 </Grid>
             </Box>
         </PageComponent>
