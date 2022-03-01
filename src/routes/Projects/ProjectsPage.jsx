@@ -42,7 +42,7 @@ function HomePage() {
                         <ProjectCard
                             banner="/images/ForbiddenBanner.gif"
                             name="Forbidden Statistics"
-                            date="2017 - 2019"
+                            date="2017 - 2020"
                             description="Forbidden was a General Statistics Discord Bot. 
                             It gathered statistics from video games and other media and 
                             provided the user an analysis of the data."

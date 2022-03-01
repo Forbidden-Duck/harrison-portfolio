@@ -103,7 +103,7 @@ function HomePage() {
                         runs server-side and you can control different aspects
                         of Discord using this technology (i.e. sending messages,
                         creating channels, banning users). I created my first
-                        for-profit bot in 2017 and continued developing it up
+                        for-profit bot in 2017 and continued to develop it up
                         until 2020. This bot was designed to be multi-purpose
                         and tackle a variety of problems, these problems would
                         vary from mini-games to moderating a server. In 2020, I
@@ -121,7 +121,7 @@ function HomePage() {
                         React and immediately was obsessed with how I could
                         create stunning, beautiful, and interactive websites
                         without having to invest thousands of hours to make
-                        something that could only do a fraction of that.
+                        something which could only do a fraction of React.
                     </Paragraph>
                     <Paragraph>
                         I am eager to invest and expand my knowledge in the real
