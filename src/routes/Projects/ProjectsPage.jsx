@@ -50,6 +50,18 @@ function HomePage() {
                             active="inactive"
                         />
                     </Grid>
+                    <Grid item>
+                        <ProjectCard
+                            banner="/images/FitbitBanner.jpg"
+                            name="Fitbit"
+                            date="2020"
+                            description="I was gifted a Fitbit and created a collection of clockfaces and apps. 
+                            They work on a variety of clockfaces and I continue to apply bug fixes as users continue 
+                            to report them."
+                            link="https://gallery.fitbit.com/developer/9dc2e29f-47c0-4dfd-90dd-d9a838ebfb15"
+                            active="active"
+                        />
+                    </Grid>
                 </Grid>
             </Box>
         </PageComponent>
