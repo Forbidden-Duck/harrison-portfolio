@@ -262,14 +262,14 @@ function ProjectCard(props) {
                             sx={{
                                 userSelect: "none",
                                 display: "-webkit-box",
-                                "-webkit-line-clamp": `${
+                                WebkitLineClamp: `${
                                     isMobile
                                         ? "unset"
                                         : dialogOpen
                                         ? "unset"
                                         : descriptionClamp
                                 }`,
-                                "-webkit-box-orient": "vertical",
+                                WebkitBoxOrient: "vertical",
                                 overflow: "hidden",
                             }}
                         >
