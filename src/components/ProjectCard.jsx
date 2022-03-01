@@ -120,8 +120,6 @@ function ProjectCard(props) {
         return cardSize.height + 30;
     };
 
-    if (props.run) props.run(calculateHoverWidth, calculateHoverHeight);
-
     /**
      * @type {import("@mui/system/styleFunctionSx".SxProps)}
      */
