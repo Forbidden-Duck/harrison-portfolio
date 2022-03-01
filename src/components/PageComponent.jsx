@@ -11,7 +11,7 @@ const animations = {
     initial: { opacity: 0, x: 0 },
     animate: { opacity: 1, x: [null, 30, -30, 20, 0] },
 };
-const DESKTOP_DURATION = 1;
+const DESKTOP_DURATION = 0.8;
 const MOBILE_DURATION = 1;
 
 /**
