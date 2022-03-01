@@ -62,6 +62,22 @@ function HomePage() {
                             active="active"
                         />
                     </Grid>
+                    <Grid item>
+                        <ProjectCard
+                            banner="/images/EcommerceBanner.jpg"
+                            name="Ecommerce Website"
+                            date="2021"
+                            description="This is my attempt in learning new technologies relevant to accounts, 
+                            administration and payment processing. Be able to create successful and failure test payments
+                            and view them in the admin panel."
+                            linkCode={[
+                                "https://github.com/Forbidden-Duck/ecommerce-frontend",
+                                "https://github.com/Forbidden-Duck/ecommerce-backend",
+                            ]}
+                            linkWebsite="https://ecommerce.harrisonhoward.xyz/"
+                            active="active"
+                        />
+                    </Grid>
                 </Grid>
             </Box>
         </PageComponent>
