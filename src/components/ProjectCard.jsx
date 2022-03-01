@@ -317,6 +317,13 @@ function ProjectCard(props) {
                                     size="small"
                                 />
                             )}
+                            {props.active === "inprogress" && (
+                                <Chip
+                                    label="In progess"
+                                    color="warning"
+                                    size="small"
+                                />
+                            )}
                             {props.active === "inactive" && (
                                 <Chip
                                     label="Inactive"
