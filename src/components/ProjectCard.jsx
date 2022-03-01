@@ -270,7 +270,10 @@ function ProjectCard(props) {
                                 height={BANNER_HEIGHT}
                                 image={props.banner}
                                 alt="Project Banner"
-                                sx={{ userSelect: "none" }}
+                                sx={{
+                                    userSelect: "none",
+                                    pointerEvents: "none",
+                                }}
                             />
                         </div>
                     ) : (
