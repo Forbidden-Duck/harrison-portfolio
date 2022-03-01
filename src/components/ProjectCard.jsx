@@ -319,7 +319,7 @@ function ProjectCard(props) {
                             )}
                             {props.active === "inprogress" && (
                                 <Chip
-                                    label="In progess"
+                                    label="In progress"
                                     color="warning"
                                     size="small"
                                 />
