@@ -155,18 +155,18 @@ function ProjectCard(props) {
     let timer = useRef(null);
     const onCardMouseEnter = () => {
         setCardElevation(CARD_HOVER_ELEVATION);
-        if (timer) clearTimeout(timer);
-        timer = setTimeout(() => {
+        if (timer.current) clearTimeout(timer.current);
+        timer.current = setTimeout(() => {
             setDescriptionClamp("unset");
-            timer = null;
+            timer.current = null;
         }, 250);
     };
     const onCardMouseLeave = () => {
         setCardElevation(CARD_DEFAULT_ELEVATION);
-        if (timer) clearTimeout(timer);
-        timer = setTimeout(() => {
+        if (timer.current) clearTimeout(timer.current);
+        timer.current = setTimeout(() => {
             setDescriptionClamp(Math.round(cardSize?.height / 120) || 2);
-            timer = null;
+            timer.current = null;
         }, 250);
     };
 
