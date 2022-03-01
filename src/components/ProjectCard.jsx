@@ -39,7 +39,7 @@ const DIALOG_TRANSITION = React.forwardRef(function DIALOG_TRANSITION(
 /**
  *
  * @param {{ banner: string, name: string, description: string, link: string, active: "active" | "inactive",
- * maxHeight: string, maxWidth: string }} props
+ * maxHeight: string, maxWidth: string, useMaxSize: boolean }} props
  * @returns {JSX.Element}
  */
 function ProjectCard(props) {
@@ -66,7 +66,7 @@ function ProjectCard(props) {
     }, []);
 
     useEffect(() => {
-        setDescriptionClamp(Math.round(descriptionHeight / 25) || 2);
+        setDescriptionClamp(Math.round(cardSize?.height / 120) || 2);
     }, [descriptionHeight]);
 
     // Window resize resets the card size and description height
@@ -89,6 +89,39 @@ function ProjectCard(props) {
         };
     }, []);
 
+    const calculateHoverWidth = () => {
+        // Always use maxWidth to calculate growth
+        if (props.useMaxSize) {
+            if (props.maxWidth) return `calc(${props.maxWidth} + 30)`;
+            return 430;
+        }
+        return cardSize.width + 30;
+    };
+
+    const calculateHoverHeight = (dialog) => {
+        if (isMobile) return "unset";
+        // If the description growth by 30px is less than the entire content, show the entire content
+        if (
+            descriptionRef.current?.offsetHeight + 30 <
+                descriptionRef.current?.scrollHeight ||
+            (dialog &&
+                descriptionRef.current?.offsetHeight <=
+                    descriptionRef.current?.scrollHeight)
+        ) {
+            return (
+                cardSize.height + (descriptionRef.current?.scrollHeight - 30)
+            );
+        }
+        // Always use maxWidth to calculate growth
+        if (props.useMaxSize) {
+            if (props.maxHeight) return `calc(${props.maxHeight} + 30)`;
+            return cardSize.height + 30;
+        }
+        return cardSize.height + 30;
+    };
+
+    if (props.run) props.run(calculateHoverWidth, calculateHoverHeight);
+
     /**
      * @type {import("@mui/system/styleFunctionSx".SxProps)}
      */
@@ -99,8 +132,8 @@ function ProjectCard(props) {
             maxWidth: props.maxWidth || "400px",
             maxHeight: props.maxHeight || "240px",
             "&:hover": {
-                maxWidth: cardSize.width + 30,
-                maxHeight: cardSize.height + 30,
+                maxWidth: calculateHoverWidth(),
+                maxHeight: calculateHoverHeight(),
                 ...maxSize,
             },
             "@media (max-width:600px)": {
@@ -112,6 +145,7 @@ function ProjectCard(props) {
             ...maxSize,
         },
     };
+    if (props.useMaxSize) classesSx.card = { ...classesSx.card, ...maxSize };
 
     const handleDialogOpen = () => {
         setDialogOpen(true);
@@ -127,15 +161,15 @@ function ProjectCard(props) {
         timer = setTimeout(() => {
             setDescriptionClamp("unset");
             timer = null;
-        }, 200);
+        }, 250);
     };
     const onCardMouseLeave = () => {
         setCardElevation(CARD_DEFAULT_ELEVATION);
         if (timer) clearTimeout(timer);
         timer = setTimeout(() => {
-            setDescriptionClamp(Math.round(descriptionHeight / 25) || 2);
+            setDescriptionClamp(Math.round(cardSize?.height / 120) || 2);
             timer = null;
-        }, 200);
+        }, 250);
     };
 
     return (
@@ -172,7 +206,9 @@ function ProjectCard(props) {
                     dialogOpen
                         ? {
                               ...classesSx.card,
-                              ...classesSx.card["&:hover"],
+                              maxWidth: calculateHoverWidth(),
+                              maxHeight: calculateHoverHeight(true),
+                              ...maxSize,
                           }
                         : classesSx.card
                 }
