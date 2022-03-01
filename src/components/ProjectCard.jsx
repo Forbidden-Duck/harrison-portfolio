@@ -101,9 +101,9 @@ function ProjectCard(props) {
 
     const calculateHoverHeight = (dialog) => {
         if (isMobile) return "unset";
-        // If the description growth by 30px is less than the entire content, show the entire content
+        // If the description growth is less than the entire content, show the entire content
         if (
-            descriptionRef.current?.offsetHeight + 30 <
+            descriptionRef.current?.offsetHeight + 40 <
                 descriptionRef.current?.scrollHeight ||
             (dialog &&
                 descriptionRef.current?.offsetHeight <=
