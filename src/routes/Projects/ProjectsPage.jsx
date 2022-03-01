@@ -66,7 +66,7 @@ function HomePage() {
                         <ProjectCard
                             banner="/images/EcommerceBanner.jpg"
                             name="Ecommerce Website"
-                            date="2021"
+                            date="2021 - 2021"
                             description="In a test enviroment create fake successful and unsuccessful payments on
                             a catalogue of products. Manage your orders and the receipt for your order. As an 
                             administrator manage the users, products and orders present on the website."
@@ -83,7 +83,7 @@ function HomePage() {
                         <ProjectCard
                             banner="/images/MongoDBBanner.png"
                             name="Mongo Web App"
-                            date="2021"
+                            date="2021 - 2021"
                             description="Create a new database connection entry and view all of the databases, 
                             collections and documents for that particular connection. Create an account and
                             saved and favourite your database connections."
@@ -97,7 +97,7 @@ function HomePage() {
                         <ProjectCard
                             banner="https://i.imgur.com/f7KdaFb.jpeg"
                             name="Thryve"
-                            date="2022"
+                            date="2022 - Present"
                             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             Aliquam interdum dui at nulla egestas dapibus. Donec tempor, orci a 
                             sit amet congue mauris lorem ac nibh. Nam ultrices eu neque a condimentum."
