@@ -67,16 +67,16 @@ function HomePage() {
                             banner="/images/EcommerceBanner.jpg"
                             name="Ecommerce Website"
                             date="2021"
-                            description="This is my attempt in learning new technologies relevant to accounts, 
-                            administration and payment processing. Create successful and failed test payments 
-                            and manage them in the admin panel."
+                            description="In a test enviroment create fake successful and unsuccessful payments on
+                            a catalogue of products. Manage your orders and the receipt for your order. As an 
+                            administrator manage the users, products and orders present on the website."
                             linkCode={[
                                 "https://github.com/Forbidden-Duck/ecommerce-frontend",
                                 "https://github.com/Forbidden-Duck/ecommerce-backend",
                             ]}
                             linkWebsite="https://ecommerce.harrisonhoward.xyz/"
                             active="active"
-                            cardGrowth={45}
+                            cardGrowth={50}
                         />
                     </Grid>
                 </Grid>
