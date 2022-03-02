@@ -11,7 +11,7 @@ function HomePage() {
         container: {
             textAlign: "center",
             marginTop: "4rem",
-            "& div[class^='makeStyles-list']:not(:last-child)": {
+            "& $list:not(:last-child)": {
                 marginBottom: "2rem",
             },
             "& h4": {
