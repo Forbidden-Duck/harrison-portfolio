@@ -43,7 +43,7 @@ function HomePage() {
                             banner="/images/ForbiddenBanner.gif"
                             name="Forbidden Statistics"
                             date="2017 - 2020"
-                            description="Forbidden was a General Statistics Discord Bot. 
+                            description="Forbidden was a General Statistics Discord bot. 
                             It gathered statistics from video games and other media and 
                             provided the user an analysis of the data."
                             linkCode="https://github.com/Forbidden-Duck/forbidden-bot"
@@ -55,7 +55,7 @@ function HomePage() {
                             banner="/images/FitbitBanner.jpg"
                             name="Fitbit"
                             date="2020"
-                            description="I was gifted a Fitbit and created a collection of clockfaces and apps. 
+                            description="A collection of clockfaces and apps that I have created.
                             They work on a variety of clockfaces and I continue to apply bug fixes as users continue 
                             to report them."
                             link="https://gallery.fitbit.com/developer/9dc2e29f-47c0-4dfd-90dd-d9a838ebfb15"
@@ -67,8 +67,8 @@ function HomePage() {
                             banner="/images/EcommerceBanner.jpg"
                             name="Ecommerce Website"
                             date="2021 - 2021"
-                            description="In a test enviroment create fake successful and unsuccessful payments on
-                            a catalogue of products. Manage your orders and the receipt for your order. As an 
+                            description="In a test environment create fake successful and unsuccessful payments on
+                            a catalogue of products. Manage your card, orders and the receipt for your order. As an 
                             administrator manage the users, products and orders present on the website."
                             linkCode={[
                                 "https://github.com/Forbidden-Duck/ecommerce-frontend",
@@ -76,7 +76,6 @@ function HomePage() {
                             ]}
                             linkWebsite="https://ecommerce.harrisonhoward.xyz/"
                             active="active"
-                            cardGrowth={50}
                         />
                     </Grid>
                     <Grid item>
@@ -85,8 +84,8 @@ function HomePage() {
                             name="Mongo Web App"
                             date="2021 - 2021"
                             description="Create a new database connection entry and view all of the databases, 
-                            collections and documents for that particular connection. Create an account and
-                            saved and favourite your database connections."
+                            collections and documents for that particular connection. Create an account to be able to
+                            save and favourite your database connections."
                             linkCode="https://github.com/Forbidden-Duck/mongo-web-app"
                             linkWebsite="https://mongowebapp.harrisonhoward.xyz/"
                             active="active"
