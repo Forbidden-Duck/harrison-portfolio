@@ -112,9 +112,7 @@ function ProjectCard(props) {
                     descriptionRef.current?.scrollHeight)
         ) {
             return (
-                cardSize.height +
-                (descriptionRef.current?.scrollHeight -
-                    (props.cardGrowth || 30))
+                cardSize.height + (descriptionRef.current?.scrollHeight - 30)
             );
         }
         // Always use maxWidth to calculate growth
