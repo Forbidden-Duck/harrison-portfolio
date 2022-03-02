@@ -4,7 +4,11 @@ import { Typography, IconButton, useMediaQuery, Tooltip } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import {
+    faGithub,
+    faTwitter,
+    faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 function HomePage() {
     const classes = makeStyles((theme) => ({
@@ -96,7 +100,22 @@ function HomePage() {
                 </IconButton>
                 <IconButton
                     style={{ color: "inherit" }}
-                    href="https://twitter.com/forbiddenduck"
+                    href="https://www.linkedin.com/in/harrison-howard-8b61241b1/"
+                    target="_blank"
+                >
+                    <Tooltip title="Linkedin" placement="bottom">
+                        <div>
+                            <FontAwesomeIcon
+                                className={classes.linkIcon}
+                                icon={faLinkedin}
+                                size="lg"
+                            />
+                        </div>
+                    </Tooltip>
+                </IconButton>
+                <IconButton
+                    style={{ color: "inherit" }}
+                    href="https://twitter.com/harrisonhowardd"
                     target="_blank"
                 >
                     <Tooltip title="Twitter" placement="bottom">
