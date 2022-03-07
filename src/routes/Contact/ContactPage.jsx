@@ -45,6 +45,7 @@ function ContactPage() {
     const handleSubmit = (values, { resetForm }) => {
         setFormLoading(true);
         setFormError(false);
+        values.message = values.message.replace(/\n/gi, "<br />");
         fetch(ZAPIER_URL, {
             method: "POST",
             body: JSON.stringify(values),
