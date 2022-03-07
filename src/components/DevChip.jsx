@@ -1,6 +1,5 @@
 import React from "react";
 import { Chip, useTheme } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import * as DevIcon from "devicons-react";
 import hexToRGB from "../utils/hexToRGB";
 

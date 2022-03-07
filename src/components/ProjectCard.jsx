@@ -3,7 +3,6 @@ import {
     Card,
     CardActionArea,
     CardContent,
-    CardHeader,
     CardMedia,
     Dialog,
     DialogTitle,
@@ -35,7 +34,6 @@ const DIALOG_TRANSITION = React.forwardRef(function DIALOG_TRANSITION(
 ) {
     return <Slide direction="down" ref={ref} {...props} />;
 });
-const CARD_GROWTH = 30;
 
 /**
  *
@@ -73,20 +71,22 @@ function ProjectCard(props) {
 
     // Window resize resets the card size and description height
     useEffect(() => {
+        const _cardRef = cardRef.current;
+        const _descriptionRef = descriptionRef.current;
         window.addEventListener("resize", () => {
             setCardSize({
-                height: cardRef.current?.offsetHeight || 0,
-                width: cardRef.current?.offsetWidth || 0,
+                height: _cardRef?.offsetHeight || 0,
+                width: _cardRef?.offsetWidth || 0,
             });
-            setDescriptionHeight(descriptionRef.current?.offsetHeight || 0);
+            setDescriptionHeight(_descriptionRef?.offsetHeight || 0);
         });
         return () => {
             window.removeEventListener("resize", () => {
                 setCardSize({
-                    height: cardRef.current?.offsetHeight || 0,
-                    width: cardRef.current?.offsetWidth || 0,
+                    height: _cardRef?.offsetHeight || 0,
+                    width: _cardRef?.offsetWidth || 0,
                 });
-                setDescriptionHeight(descriptionRef.current?.offsetHeight || 0);
+                setDescriptionHeight(_descriptionRef?.offsetHeight || 0);
             });
         };
     }, []);
@@ -149,9 +149,6 @@ function ProjectCard(props) {
     };
     if (props.useMaxSize) classesSx.card = { ...classesSx.card, ...maxSize };
 
-    const handleDialogOpen = () => {
-        setDialogOpen(true);
-    };
     const handleDialogClose = () => {
         setDialogOpen(false);
     };

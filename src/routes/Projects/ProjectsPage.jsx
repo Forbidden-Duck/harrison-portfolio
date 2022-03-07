@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import PageComponent from "../../components/PageComponent";
 import ProjectCard from "../../components/ProjectCard";
-import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
+import { Box, Grid, useMediaQuery } from "@mui/material";
 
 function HomePage() {
     const isMobile = useMediaQuery("(max-width:552px)");
