@@ -64,6 +64,9 @@ function PageComponent(props) {
             display: "flex",
             justifyContent: "flex-end",
         },
+        hidden: {
+            display: "none",
+        },
     }))();
 
     useEffect(() => {
@@ -142,7 +145,7 @@ function PageComponent(props) {
                 >
                     <FontAwesomeIcon icon={faArrowRight} />
                 </IconButton>
-                <div className={classes.alert}>
+                <div className={`${classes.alert} ${classes.hidden}`}>
                     <Alert severity="warning" sx={{ position: "absolute" }}>
                         This website is under development
                     </Alert>
