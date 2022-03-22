@@ -13,7 +13,7 @@ import { makeStyles } from "@mui/styles";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
-const ZAPIER_URL = "https://hooks.zapier.com/hooks/catch/11988349/bi9kgd9/";
+const ZAPIER_URL = "https://webhook-contact-app.herokuapp.com/contact";
 
 function ContactPage() {
     const classes = makeStyles((theme) => ({
@@ -46,6 +46,9 @@ function ContactPage() {
         setFormError(false);
         values.message = values.message.replace(/\n/gi, "<br />");
         fetch(ZAPIER_URL, {
+            headers: {
+                "Content-Type": "application/json",
+            },
             method: "POST",
             body: JSON.stringify(values),
         })
