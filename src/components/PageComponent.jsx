@@ -145,9 +145,10 @@ function PageComponent(props) {
                 >
                     <FontAwesomeIcon icon={faArrowRight} />
                 </IconButton>
-                <div className={`${classes.alert} ${classes.hidden}`}>
+                <div className={classes.alert}>
+                    {/* <div className={`${classes.alert} ${classes.hidden}`}> */}
                     <Alert severity="warning" sx={{ position: "absolute" }}>
-                        This website is under development
+                        New website under development
                     </Alert>
                 </div>
             </div>
