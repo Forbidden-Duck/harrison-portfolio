@@ -100,7 +100,7 @@ function HomePage() {
                 </IconButton>
                 <IconButton
                     style={{ color: "inherit" }}
-                    href="https://www.linkedin.com/in/harrison-howard-8b61241b1/"
+                    href="https://www.linkedin.com/in/harrison-howard/"
                     target="_blank"
                 >
                     <Tooltip title="Linkedin" placement="bottom">
