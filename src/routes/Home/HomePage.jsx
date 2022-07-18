@@ -85,7 +85,7 @@ function HomePage() {
                 </IconButton>
                 <IconButton
                     style={{ color: "inherit" }}
-                    href="https://github.com/Forbidden-Duck"
+                    href="https://github.com/harrisonhoward"
                     target="_blank"
                 >
                     <Tooltip title="Github" placement="bottom">
